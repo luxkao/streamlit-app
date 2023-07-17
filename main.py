@@ -21,3 +21,17 @@ fig = go.Figure()
 fig.add_trace(go.Scatter(x = data.index, y = data['Close'], name = 'Fechamento'))
 fig.update_layout(title = f"{ticker}", xaxis_title = 'Data', yaxis_title = 'Preço')
 st.plotly_chart(fig, use_container_width = True)
+
+# Plot candlestick
+fig = go.Figure()
+fig.add_trace(go.Candlestick(x = data.index, open = data['Open'], high = data['High'], low = data['Low'], close = data['Close'], name = 'Preço'))
+fig.update_layout(title = f"{ticker}", xaxis_title = 'Data', yaxis_title = 'Preço')
+st.plotly_chart(fig, use_container_width = True)
+
+# Plot Moving Average
+fig = go.Figure()
+fig.add_trace(go.Scatter(x = data.index, y = data['Close'], name = 'Fechamento'))
+fig.add_trace(go.Scatter(x = data.index, y = data['Close'].rolling(20).mean(), name = 'Média Móvel 20 dias'))
+fig.update_layout(title = f"{ticker}", xaxis_title = 'Data', yaxis_title = 'Preço')
+st.plotly_chart(fig, use_container_width = True)
+
