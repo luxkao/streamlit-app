@@ -10,7 +10,7 @@ st.sidebar.title('Selecione a ação')
 ticker = st.sidebar.text_input('Ticker', 'AAPL', max_chars = 10)
 
 # Data
-data = yf.download(ticker, start='2020-01-01', end='2023-16-07')
+data = yf.download(ticker, start='2020-01-01', end='2023-07-15')
 
 # Show data
 st.subheader('Histórico de preços')
